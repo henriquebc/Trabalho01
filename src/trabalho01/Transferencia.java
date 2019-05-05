@@ -208,8 +208,8 @@ public class Transferencia extends javax.swing.JFrame {
                         }
                     }
                 }
-                }if((CadContEspecial.e.getLimite()+CadContEspecial.e.getSaldo())>=valor){
-                    if(c2 == CadContas.c.getNumero()){
+               if((CadContEspecial.e.getLimite()+CadContEspecial.e.getSaldo())>=valor){
+                   if(c2 == CadContas.c.getNumero()){
                         Object[] btn= {"Confirmar","Cancelar" };
                         int r = JOptionPane.showOptionDialog(null,"Senhor(a) "+CadContPoupanca.p.getNome()+"\nDeseja confirmar a transferência para "+CadContas.c.getNumero()+"\n","Confirmação",JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null,btn,btn[0]);
                         switch(r){
@@ -234,12 +234,12 @@ public class Transferencia extends javax.swing.JFrame {
                             case 0:
                                 CadContEspecial.e.setSaldo((CadContEspecial.e.getSaldo()-valor)+(CadContEspecial.e.getSaldo()-valor)*CadContEspecial.e.getMulta()*0.01);
                                 CadContPoupanca.p.setSaldo(CadContPoupanca.p.getSaldo() + valor);
-                                JOptionPane.showMessageDialog(null,"Transferência realizada com sucesso");
+                                JOptionPane.showMessageDialog(null,"Transferência realizada com sucesso com limite especial");
                                 this.setVisible(false);
                                 dispose();
                                 break;
                             case 1:    
-                                JOptionPane.showMessageDialog(null,"Operação cancelada com sucesso");
+                                JOptionPane.showMessageDialog(null,"Operação cancelada com sucesso com limite");
                                 this.setVisible(false);
                                 dispose();
                                 break;
@@ -248,7 +248,8 @@ public class Transferencia extends javax.swing.JFrame {
                 }
                 else{
                     JOptionPane.showMessageDialog(null,"Titular:"+CadContEspecial.e.getNome()+" possui saldo insuficiente!!!");
-            }   
+            } 
+          }  
             if(c1 == CadContPoupanca.p.getNumero()){
                 if(CadContPoupanca.p.getSaldo()>=valor){
                     if(c2 == CadContas.c.getNumero()){
